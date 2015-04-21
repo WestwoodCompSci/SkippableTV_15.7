@@ -11,8 +11,9 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+//TODO: replace these with apache commons, I am currectly repressing an access restriction error in project settings on it
+import sun.misc.BASE64Decoder; // Basically you should never use anything that starts with sun.misc
+import sun.misc.BASE64Encoder; // org.apache commons libraries are external JAR files that I will use for this later 
 
 public class AES {
 	
@@ -131,6 +132,7 @@ public class AES {
 			//Use AES algorithm to encrypt the message as bytes
 		    byte[] encrypted = encryptionCipher.doFinal(messageBytes);
 		    //Take the encrypted bytes and rebuild a string from them
+		    //TODO: This should be done with apache commons library!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		    return new BASE64Encoder().encode(encrypted);
 		}
 		catch(Exception e){
@@ -144,6 +146,7 @@ public class AES {
 	public String decrypt(String secretMessage) {
 		try{
 			//Convert secret message into raw bytes
+			//TODO: this should be done with apache commons library!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			byte[] messageBytes = new BASE64Decoder().decodeBuffer(secretMessage);
 			//Decrypt bytes with AES
 			byte[] decrypted = decryptionCipher.doFinal(messageBytes);
