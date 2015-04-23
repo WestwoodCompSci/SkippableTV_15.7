@@ -17,10 +17,7 @@ public class SkippableClient
 	f = new JFrame("Skippable.TV");
 	f.setPreferredSize(new Dimension(600,400));
 	Login l = new Login();
-	Box vb = Box.createVerticalBox();
-	vb.add(l);
-	f.add(vb);
-
+	f.add(l);
 	//Dont Forget
 	f.pack();
 	f.setVisible(true);
