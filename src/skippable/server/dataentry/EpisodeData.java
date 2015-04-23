@@ -24,7 +24,6 @@ public class EpisodeData {
 		backdrop_path  = UNKNOWNSTRING;
 		poster_path    = UNKNOWNSTRING;
 		first_air_date = UNKNOWNSTRING;
-		season     = UNKNOWNINT;
 		id         = UNKNOWNINT;
 		vote_count = UNKNOWNINT; 
 		vote_average = UNKNOWNFLOAT;
