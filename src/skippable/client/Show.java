@@ -13,7 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-public class Show extends SkippableClient {
+public class Show extends JPanel {
 	private JPanel p;
 	private Show()
 	{

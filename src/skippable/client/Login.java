@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
 
 
 
-public class Login 
+public class Login extends JPanel
 {
 	private JPanel myLoginPage;
 	

@@ -1,8 +1,11 @@
 package skippable.client;
 
+import java.awt.Container;
 import java.awt.Dimension;
 
+import javax.swing.Box;
 import javax.swing.JFrame;
+import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 
 public class SkippableClient 
@@ -13,8 +16,10 @@ public class SkippableClient
 		//make das frame
 	f = new JFrame("Skippable.TV");
 	f.setPreferredSize(new Dimension(600,400));
-	Login l = new Login()
-	f.add(l);
+	Login l = new Login();
+	Box vb = Box.createVerticalBox();
+	vb.add(l);
+	f.add(vb);
 
 	//Dont Forget
 	f.pack();
