@@ -7,29 +7,49 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-public class Show {
-	private JFrame f;
-	public Show()
+public class Show extends SkippableClient {
+	private JPanel p;
+	private Show()
 	{
 		//create frame
-		f = new JFrame("REPLACE THIS WITH EPISODE NAME");
-		f.setPreferredSize(new Dimension(720,440));
-		f.pack();
-		f.setVisible(true);
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		p = new JPanel();
+		p.setPreferredSize(super.getSize());
+		//Episode Buttons
+		JButton b = new JButton("shab");
 		
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() { new Show(); }
-		});
+		
+		//Sliders
+		
+		
+		//progress Bars
+		
+		
+		
+		//Skipbars
+		
+		
+		
+		
+		
+		//Boxes
+		
+		
+	
+		
+		
+		p.add(b);
+
+	
+		p.setVisible(true);
 	}
-	}
+}
+
+
 
 

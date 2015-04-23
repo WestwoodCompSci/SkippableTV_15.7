@@ -1,5 +1,38 @@
 package skippable.client;
 
-public class SkippableClient {
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+public class SkippableClient 
+{
+	private JFrame f;
+	SkippableClient()
+	{
+		//make das frame
+	f = new JFrame("Skippable.TV");
+	f.setPreferredSize(new Dimension(600,400));
+	Login l = new Login()
+	f.add(l);
+
+	//Dont Forget
+	f.pack();
+	f.setVisible(true);
+	}
+	public Dimension getSize()
+	{
+		Dimension d;
+		d = f.getSize();
+		return d;
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() { new SkippableClient(); }
+		});
+	}
 
 }
