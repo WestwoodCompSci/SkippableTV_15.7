@@ -1,5 +1,9 @@
 package skippable.server.dataentry;
 
+import java.awt.Image;
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 public class EpisodeData {
 	
 	//Class to hold GSON stream built from JSON responses from TMDB
@@ -16,6 +20,8 @@ public class EpisodeData {
 	public int season, id, vote_count; 
 	public float vote_average, popularity;
 	
+	
+	
 	public EpisodeData(){
 		//Makes no assumptions about what data is known, just creates a shell
 		name           = UNKNOWNSTRING;
@@ -28,6 +34,24 @@ public class EpisodeData {
 		vote_count = UNKNOWNINT; 
 		vote_average = UNKNOWNFLOAT;
 		popularity   = UNKNOWNFLOAT;
+		
+		
+	}
+	
+	public Image getimage()
+	{
+		String searchquery = "the movie database "+original_name;
+		try {
+			return (new ImageSource(searchquery).getimage());
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	
 	}
 
 }
