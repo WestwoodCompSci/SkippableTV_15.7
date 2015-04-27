@@ -5,12 +5,15 @@ import java.awt.Dimension;
 
 import javax.swing.Box;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 
 public class SkippableClient 
 {
 	private JFrame f;
+	private JPanel CurrentJPanel;
+	
 	SkippableClient()
 	{
 		//make das frame
@@ -18,6 +21,7 @@ public class SkippableClient
 	f.setPreferredSize(new Dimension(600,400));
 	Login l = new Login();
 	f.add(l);
+	CurrentJPanel = l;
 	//Dont Forget
 	f.pack();
 	f.setVisible(true);

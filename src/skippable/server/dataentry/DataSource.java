@@ -1,5 +1,12 @@
 package skippable.server.dataentry;
 
+import java.awt.Image;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+
 public abstract class DataSource {
 	
 	//Abstract Methods
@@ -17,6 +24,23 @@ public abstract class DataSource {
 	
 	public void addToDataBase(EpisodeData data){
 		//TODO: implement data entry in database once database gets an implementation prepared		
+	}
+	
+	
+	//get image method uses url from database that links to an image and returns the actual image
+	public Image getimage(String inputurl) 
+	{
+		
+		try {
+			return ImageIO.read(new URL(inputurl));
+		} catch (MalformedURLException e) {
+			// TODO fail
+			
+		} catch (IOException e) {
+			// TODO fail
+			
+		}
+		return null;
 	}
 
 }
