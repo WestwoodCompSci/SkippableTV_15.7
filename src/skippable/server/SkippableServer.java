@@ -34,4 +34,9 @@ public class SkippableServer {
 		
 	}
 	
+	public static void main(String[] args) {
+		
+		new SkippableServer(32700);
+		
+	}
 }

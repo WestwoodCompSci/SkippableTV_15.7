@@ -1,4 +1,4 @@
-package skippable.server.net;
+package skippable.common.net;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -14,14 +14,16 @@ public class SocketThread extends Thread implements Closeable {
 	private boolean persist;
 	private Scanner s;
 	private static int threadNo;
+	private NetworkInputHandler nih;
 	
-	public SocketThread(Socket s) {
+	public SocketThread(Socket s, NetworkInputHandler nih) {
 		setName("SocketThread-"+(++threadNo));
 		socket = s;
 		persist = true;
+		this.nih = nih;
 	}
 	
-	private InputStream getInputStream() {
+	public InputStream getInputStream() {
 		InputStream inputStream = null;
 		try {
 			inputStream = socket.getInputStream();
@@ -51,7 +53,7 @@ public class SocketThread extends Thread implements Closeable {
 		while(persist) {
 			
 			if (s.hasNextLine()) {
-				handleInput(s.nextLine());
+				nih.handleInput(s.nextLine());
 			}
 			
 		}

@@ -4,8 +4,11 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.HashSet;
 import java.util.Set;
+
+import skippable.common.net.SocketThread;
 
 public class ConnectionThread extends Thread implements Closeable {
 
@@ -24,8 +27,13 @@ public class ConnectionThread extends Thread implements Closeable {
 	public void run() {
 		while(persist) {
 			try {
-				Socket s = serverSocket.accept();
-				SocketThread thread = new SocketThread(s);
+				Socket s = null;
+				try {
+					s = serverSocket.accept();
+				} catch (SocketTimeoutException ste) {
+					continue;
+				}
+				SocketThread thread = new SocketThread(s, new ServerInputHandler());
 				socketThreads.add(thread);
 				thread.start();
 			} catch (IOException e) {
