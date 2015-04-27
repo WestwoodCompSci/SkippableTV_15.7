@@ -17,7 +17,8 @@ public class SkippableClient
 	SkippableClient()
 	{
 		//make das frame
-	f = new JFrame("Skippable.TV");
+	f = new JFrame("SKiPpaBLe.TV");
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	f.setPreferredSize(new Dimension(600,400));
 	Login l = new Login();
 	f.add(l);
