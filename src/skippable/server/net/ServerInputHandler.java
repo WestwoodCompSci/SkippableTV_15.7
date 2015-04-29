@@ -6,7 +6,9 @@ public class ServerInputHandler extends NetworkInputHandler {
 
 	@Override
 	public void handleInput(String input) {
-		// TODO Auto-generated method stub
+		String[] temp = parseInput(input);
+		//getPrintWriter().println(input);
+		System.out.println(input);
 		
 	}
 
