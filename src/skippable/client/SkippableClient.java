@@ -1,18 +1,17 @@
 package skippable.client;
 
-import java.awt.Container;
 import java.awt.Dimension;
 
-import javax.swing.Box;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 
 public class SkippableClient 
 {
 	private JFrame f;
 	private JPanel CurrentJPanel;
+	
+	private ClientBackend backend;
 	
 	SkippableClient()
 	{
@@ -23,6 +22,9 @@ public class SkippableClient
 	Login l = new Login();
 	f.add(l);
 	CurrentJPanel = l;
+	
+	backend = new ClientBackend("127.0.0.1", 32700); // TODO change host and port to something else.
+	
 	//Dont Forget
 	f.pack();
 	f.setVisible(true);
