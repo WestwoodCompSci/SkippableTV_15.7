@@ -35,6 +35,36 @@ public class ClientBackend {
 		pw.println(NetworkInputHandler.formMessage("TEST", new String[]{"hello", "hi"}));
 		pw.flush();
 		
+		
 	}
+	
+	public boolean login(String username, String password) {
+		return false;
+	}
+	
+	public void register(String username, String email, String password) {
+		
+	}
+	
+	
+	public void addUserShow(Show myShow){
+		
+	}
+	
+	public void removeUserShow(Show myShow){
+		
+		
+	}
+	
+	public  String getUsername() {
+		return username;
+	}
+	
+	public List<Show> getUserShows() {
+		return userShows;
+	}
+	
+	
+	
 	
 }
