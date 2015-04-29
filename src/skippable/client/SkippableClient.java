@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import skippable.client.backend.ClientBackend;
 import skippable.client.gui.LoginPanel;
 
 public class SkippableClient 

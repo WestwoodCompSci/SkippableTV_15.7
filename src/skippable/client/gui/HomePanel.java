@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import skippable.client.ClientBackend;
+import skippable.client.backend.ClientBackend;
 
 public class HomePanel extends JFrame{
 

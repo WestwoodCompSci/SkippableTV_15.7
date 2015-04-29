@@ -1,4 +1,4 @@
-package skippable.client;
+package skippable.client.backend;
 
 import java.io.IOException;
 import java.io.PrintWriter;
