@@ -1,4 +1,4 @@
-package skippable.client;
+package skippable.client.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;

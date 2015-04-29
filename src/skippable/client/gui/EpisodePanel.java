@@ -1,4 +1,4 @@
-package skippable.client;
+package skippable.client.gui;
 import java.awt.Image;
 import java.util.List;
 
