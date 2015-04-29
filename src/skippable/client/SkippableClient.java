@@ -19,7 +19,7 @@ public class SkippableClient
 	f = new JFrame("SKiPpaBLe.TV");
 	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	f.setPreferredSize(new Dimension(600,400));
-	Login l = new Login();
+	LoginPanel l = new LoginPanel();
 	f.add(l);
 	CurrentJPanel = l;
 	
