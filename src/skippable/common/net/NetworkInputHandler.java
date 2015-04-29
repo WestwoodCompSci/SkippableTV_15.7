@@ -33,4 +33,21 @@ public abstract class NetworkInputHandler {
 		return out;
 	}
 	
+	public static String formMessage(String key, String[] values) {
+		String message = key;
+		for (String value : values) {
+			message += SEP + value;
+		}
+		
+		return message;
+	}
+	
+	public static String formList(String[] list) {
+		String message = "";
+		for (String item: list) {
+			message += LIST_SEP + item;
+		}
+		return message;
+	}
+	
 }
