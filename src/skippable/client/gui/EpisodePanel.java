@@ -1,8 +1,11 @@
 package skippable.client.gui;
+import java.awt.Component;
 import java.awt.Image;
 import java.util.List;
 
 import javax.swing.*;
+
+import skippable.client.backend.Episode;
 
 public class EpisodePanel extends JPanel
 {
@@ -16,13 +19,14 @@ public class EpisodePanel extends JPanel
 		//TV show info		
 		JTextField titleField = new JTextField(myEpisode.getTitle());
 		Box titleHBox = Box.createHorizontalBox();							//contains bars, show name, show rating, season #, episode #
-		Image skipBars = new Image("");										//skip bars, unique to episode
+		Image skipBars = new Image("image.png");							//skip bars, unique to episode
 		Box showStarsV = Box.createVerticalBox();							//show name, show rating, season #, episode #
 		Box showStarsH = Box.createHorizontalBox();							//show name, show rating (image?)
 		JTextField showName = new JTextField(myEpisode.getShow().getTitle());
 		showStarsH.add(showName);
-		
+		showStarsH.add(new JTextField(myEpisode.getShow().getShowRating()));
 		showStarsV.add(showStarsH);
+		titleHBox.add(skipBars);											//figure out how to add image to component
 		
 		//episode info
 		Box summTitle = Box.createHorizontalBox();
