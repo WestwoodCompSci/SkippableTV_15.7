@@ -132,6 +132,7 @@ public class ShowPanel extends JPanel {
 		vb.add(Title);
 		vb.add(Slider);
 		vb.add(Episodes);
+		p.add(vb);
 
 	
 		p.setVisible(true);
