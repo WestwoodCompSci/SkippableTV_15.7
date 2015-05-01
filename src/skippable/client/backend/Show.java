@@ -31,4 +31,8 @@ public class Show {
 		return title;
 	}
 	
+	public List<Episode> getEpisodes() {
+		return episodes;
+	}
+	
 }
