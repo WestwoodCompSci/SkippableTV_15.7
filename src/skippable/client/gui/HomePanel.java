@@ -31,7 +31,7 @@ public class HomePanel extends JFrame{
 		JComboBox getGenre = new JComboBox();
 		
 		//Labels
-		JLabel myShows = new JLabel("My Shows");
+		JLabel myShowsLabel = new JLabel("My Shows");
 		
 		//Get userShows
 		
@@ -46,6 +46,11 @@ public class HomePanel extends JFrame{
 		//Adding in the shows
 		for(int i=0; i < myShows.size(); i++){
 			
+			Box newVerticalBox = Box.createVerticalBox();
+			JLabel title = new JLabel(myShows.get(i).getTitle());
+			newVerticalBox.add(title);
+			
+			showDisplay.add(newVerticalBox);
 		}
 		
 	}
