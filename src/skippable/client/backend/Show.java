@@ -7,6 +7,7 @@ public class Show {
 	private String summary;
 	private int rating;
 	private String genre;
+	private String title;
 	
 	private List<Episode> episodes;
 	
@@ -24,6 +25,10 @@ public class Show {
 	
 	public int getShowRating() {
 		return rating;
+	}
+	
+	public String getTitle() {
+		return title;
 	}
 	
 }
