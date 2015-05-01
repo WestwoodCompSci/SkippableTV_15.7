@@ -13,6 +13,7 @@ public class Show {
 	private int rating;
 	private String genre;
 	
+	
 	private Image img;
 	private String title;
 	private List<Episode> episodes;
