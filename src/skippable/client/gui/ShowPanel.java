@@ -2,9 +2,12 @@ package skippable.client.gui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.Box;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
@@ -24,7 +27,7 @@ public class ShowPanel extends JPanel {
 		p.setPreferredSize(new Dimension(600,400));
 		//Episode Buttons
 		ArrayList<Episode> epi = new ArrayList<Episode>();
-		 for (int i = 0; i < DasShow.getEpisodes().size();i++)
+		 for(int i = 0; i < DasShow.getEpisodes().size();i++)
 			 epi.set(i, DasShow.getEpisodes().get(i));
 		
 		//Sliders
@@ -60,7 +63,15 @@ public class ShowPanel extends JPanel {
 	
 		for(int i = 0;i<epi.size();i++)
 		{
-			JLabel episodenum = new JLabel("Epi." + (i+1));
+			JButton episodenum = new JButton("Ep. " + (i+1));
+			
+			episodenum.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					// TODO Auto-generated method stub
+					//Add code to get EpisodePanel for specific page
+				}});
 			rating = epi.get(i).getEpisodeSkippability();
 			Box sho = Box.createVerticalBox();
 			Box epis = Box.createHorizontalBox();
