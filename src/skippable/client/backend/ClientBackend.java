@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 import skippable.client.net.ClientInputHandler;
@@ -15,7 +16,7 @@ public class ClientBackend {
 	private String username;
 	private String email;
 	private String password;
-	private List<Show> userShows;
+	private ArrayList<Show> userShows;
 	
 	SocketThread thread;
 	
@@ -60,7 +61,7 @@ public class ClientBackend {
 		return username;
 	}
 	
-	public List<Show> getUserShows() {
+	public ArrayList<Show> getUserShows() {
 		return userShows;
 	}
 	
