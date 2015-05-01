@@ -12,19 +12,17 @@ public class Show {
 	private String summary;
 	private int rating;
 	private String genre;
-	private String name;
 	
 	private Image img;
-	
+	private String title;
 	private List<Episode> episodes;
 	
 	
 	public Show(String name, String genre, String summary) {
-		this.name = name;
+		this.title = name;
 		this.genre = genre;
 		this.summary = summary;
 	}
-	
 	
 	public String getShowSummary() {
 		return summary;
@@ -41,7 +39,6 @@ public class Show {
 	public int getShowRating() {
 		return rating;
 	}
-	
 	public Image getImage() {
 		return img;
 	}
@@ -61,16 +58,16 @@ public class Show {
 		setImage(ImageIO.read(new File(source)));
 	}
 	
-	public String getName() {
-		return name;
-	}
-	
 	public String getGenre() {
 		return genre;
 	}
 	
 	public List<Episode> getEpisodes() {
 		return episodes;
+	}
+	
+	public String getTitle() {
+		return title;
 	}
 	
 }

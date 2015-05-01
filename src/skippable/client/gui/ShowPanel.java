@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 
 import skippable.client.backend.Episode;
+import skippable.client.backend.Show;
 
 public class ShowPanel extends JPanel {
 	private JPanel p;
@@ -16,13 +17,14 @@ public class ShowPanel extends JPanel {
 	{
 		//variables
 		int rating;
+		Show DasShow;
 		//create frame
 		p = new JPanel();
 		p.setPreferredSize(new Dimension(600,400));
 		//Episode Buttons
 		ArrayList<Episode> epi = new ArrayList<Episode>();
 		 
-		
+		epi = Show.getEpisodes();
 		//Sliders
 		int min = 0;
 		int max = 100;
@@ -36,8 +38,8 @@ public class ShowPanel extends JPanel {
 		//Boxes
 		Box vb = Box.createVerticalBox();
 		Box Title= Box.createHorizontalBox();
-		Box Seasons= Box.createHorizontalBox();
-		Box SeasonCompletion= Box.createHorizontalBox();
+		//Box Seasons= Box.createHorizontalBox();
+		//Box SeasonCompletion= Box.createHorizontalBox();
 		Box Slider= Box.createHorizontalBox();
 		Box Episodes= Box.createHorizontalBox();
 		Box Ratings= Box.createHorizontalBox();
@@ -56,6 +58,7 @@ public class ShowPanel extends JPanel {
 	
 		for(int i = 0;i<epi.size();i++)
 		{
+			JLabel episodenum = new JLabel("Epi." + (i+1));
 			rating = epi.get(i).getEpisodeSkippability();
 			Box sho = Box.createVerticalBox();
 			Box epis = Box.createHorizontalBox();
@@ -112,10 +115,13 @@ public class ShowPanel extends JPanel {
 				
 			}
 			Ratings.add(sho);
-				
+			Box thisSode = Box.createVerticalBox();
+			thisSode.add(episodenum);
+			thisSode.add(Ratings);
+			Episodes.add(thisSode);	
 		}
 		
-		
+		Slider.add(Skip);
 
 	
 		p.setVisible(true);
@@ -130,6 +136,7 @@ public class ShowPanel extends JPanel {
 			return Color.RED;
 		return Color.GREEN;
 	}
+	
 }
 
 

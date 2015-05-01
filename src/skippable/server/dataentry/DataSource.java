@@ -23,7 +23,8 @@ public abstract class DataSource {
 	}
 	
 	public void addToDataBase(EpisodeData data){
-		//TODO: implement data entry in database once database gets an implementation prepared		
+		//TODO: implement data entry in database once database gets an implementation prepared	
+		// YOOOO ITS THE DATABASE TEAM HERE LET US KNOW HMU WHEN YOU GOT READY TO DO THIS SHIT
 	}
 	
 	
