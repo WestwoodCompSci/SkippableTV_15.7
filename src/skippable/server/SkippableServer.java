@@ -25,7 +25,7 @@ public class SkippableServer {
 	}
 	
 	public SkippableServer() {
-		this(12345);
+		this(32700);
 	}
 	
 	public ServerSocket getServerSocket() {
