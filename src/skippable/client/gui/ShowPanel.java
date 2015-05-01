@@ -1,6 +1,7 @@
 package skippable.client.gui;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.TextArea;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -17,14 +18,15 @@ public class ShowPanel extends JPanel {
 	{
 		//variables
 		int rating;
-		Show DasShow;
+		Show DasShow = null; //Change this to the chosen episode
 		//create frame
 		p = new JPanel();
 		p.setPreferredSize(new Dimension(600,400));
 		//Episode Buttons
 		ArrayList<Episode> epi = new ArrayList<Episode>();
-		 
-		epi = Show.getEpisodes();
+		 for (int i = 0; i < DasShow.getEpisodes().size();i++)
+			 epi.set(i, DasShow.getEpisodes().get(i));
+		
 		//Sliders
 		int min = 0;
 		int max = 100;
@@ -122,6 +124,14 @@ public class ShowPanel extends JPanel {
 		}
 		
 		Slider.add(Skip);
+		Title.add(new JLabel(DasShow.getTitle()));
+		TextArea summary = new TextArea();
+		summary.setText(DasShow.getShowSummary());
+		Title.add(summary);
+		
+		vb.add(Title);
+		vb.add(Slider);
+		vb.add(Episodes);
 
 	
 		p.setVisible(true);
