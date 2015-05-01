@@ -130,6 +130,7 @@ public class ShowPanel extends JPanel {
 			return Color.RED;
 		return Color.GREEN;
 	}
+	
 }
 
 
