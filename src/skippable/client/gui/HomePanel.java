@@ -1,6 +1,9 @@
 package skippable.client.gui;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.Box;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -8,11 +11,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import skippable.client.backend.ClientBackend;
+import skippable.client.backend.Show;
 
 public class HomePanel extends JFrame{
 
 	private JPanel homePanel;
 	private ClientBackend backEnd;
+	private ArrayList<Show> myShows = backEnd.getUserShows();
 	
 	public HomePanel(ClientBackend backEnd){
 		
@@ -37,6 +42,11 @@ public class HomePanel extends JFrame{
 		
 		//Show display
 		Box showDisplay = Box.createVerticalBox();
+		
+		//Adding in the shows
+		for(int i=0; i < myShows.size(); i++){
+			
+		}
 		
 	}
 }
