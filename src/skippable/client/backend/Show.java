@@ -1,5 +1,6 @@
 package skippable.client.backend;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Show {
@@ -9,7 +10,7 @@ public class Show {
 	private String genre;
 	private String title;
 	
-	private List<Episode> episodes;
+	private ArrayList<Episode> episodes;
 	
 	public String getShowSummary() {
 		return summary;
@@ -31,7 +32,7 @@ public class Show {
 		return title;
 	}
 	
-	public List<Episode> getEpisodes() {
+	public ArrayList<Episode> getEpisodes() {
 		return episodes;
 	}
 	

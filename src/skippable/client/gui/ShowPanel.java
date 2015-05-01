@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 
 import skippable.client.backend.Episode;
+import skippable.client.backend.Show;
 
 public class ShowPanel extends JPanel {
 	private JPanel p;
@@ -16,13 +17,14 @@ public class ShowPanel extends JPanel {
 	{
 		//variables
 		int rating;
+		Show DasShow;
 		//create frame
 		p = new JPanel();
 		p.setPreferredSize(new Dimension(600,400));
 		//Episode Buttons
 		ArrayList<Episode> epi = new ArrayList<Episode>();
 		 
-		
+		epi = Show.getEpisodes();
 		//Sliders
 		int min = 0;
 		int max = 100;
