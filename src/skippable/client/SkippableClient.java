@@ -16,29 +16,32 @@ public class SkippableClient
 	
 	private ClientBackend backend;
 	
-	SkippableClient()
-	{
+	SkippableClient(){
+		
 		//make dat frame
-	f = new JFrame("SKiPpaBLe.TV");
-	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	f.setPreferredSize(new Dimension(600,400));
-	LoginPanel l = new LoginPanel();
-	f.add(l);
-	CurrentJPanel = l;
+		f = new JFrame("SKiPpaBLe.TV");
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setPreferredSize(new Dimension(600,400));
+		LoginPanel l = new LoginPanel();
+		f.add(l);
+		CurrentJPanel = l;
+		
+		backend = new ClientBackend("127.0.0.1", 32700); // TODO change host and port to something else.
+		
+		//Dont Forget
+		f.pack();
+		f.setVisible(true);
 	
-	backend = new ClientBackend("127.0.0.1", 32700); // TODO change host and port to something else.
-	
-	//Dont Forget
-	f.pack();
-	f.setVisible(true);
 	}
-	public Dimension getSize()
-	{
+	
+	public Dimension getSize(){
+		
 		Dimension d;
 		d = f.getSize();
 		return d;
 		
 	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
