@@ -43,14 +43,10 @@ public class SkippableClient
 		
 	}
 	
-/*
- * 	public static void main(String[] args) {
- * 
-		
+public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
-			public void run() { new SkippableClient(new ClientBackend(int host, int port) backend); }
+			public void run() { new SkippableClient(new ClientBackend("127.0.0.1", 32700)); }
 		});
 	}
- */
 
 }
