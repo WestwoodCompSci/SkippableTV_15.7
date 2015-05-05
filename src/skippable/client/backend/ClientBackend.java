@@ -6,6 +6,8 @@ import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import skippable.client.net.ClientInputHandler;
 import skippable.client.net.PHPInterface;
@@ -18,6 +20,8 @@ public class ClientBackend {
 	private String email;
 	private String password;
 	private ArrayList<Show> userShows;
+	
+	private Map<String, Show> showsByGenre;
 	
 	SocketThread thread;
 	
@@ -45,10 +49,20 @@ public class ClientBackend {
 			pw.flush();
 		}
 		
+		// TODO replace the following with actually not placeholder code
+		showsByGenre = new HashMap<String, Show>();
+		showsByGenre.put("Sci-Fi", new Show("Star Trek: Deep Space Nine", "Sci-Fi", "Space station"));
+		showsByGenre.put("Drama", new Show("Mean Girls", "Drama", "A girl attempts to torture 'alpha girls,' but she becomes one herself."));
+		showsByGenre.put("Action", new Show("Team America: World Police", "Action", "Uh uh hard to say"));		
 		
 	}
 	
 	public boolean login(String username, String password) {
+		
+		
+		
+		
+		
 		return false;
 	}
 	
@@ -89,7 +103,9 @@ public class ClientBackend {
 		return userShows;
 	}
 	
-	
+	public Map<String, Show> getShowsByGenre() {
+		return showsByGenre;
+	}
 	
 	
 }
