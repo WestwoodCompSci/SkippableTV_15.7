@@ -15,10 +15,12 @@ public class EpisodePanel extends JPanel
 	Episode myEpisode;
 
 	
-	public EpisodePanel()
+	public EpisodePanel(Episode ep)
 	{
 		//mySkip = myEpisode.getEpisodeSkippability();
 															//int --> String --> Image ?
+		myEpisode = ep;
+		
 		Box mainBox = Box.createVerticalBox();
 		
 		//TV show info		
