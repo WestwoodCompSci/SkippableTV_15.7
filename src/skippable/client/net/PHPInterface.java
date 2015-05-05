@@ -9,12 +9,18 @@ import java.util.Scanner;
 
 public class PHPInterface {
 
-	String params;
-	String path;
+	private String params;
+	private String path;
+	private static final String DEFAULT_DOMAIN = "http://bytor.atwebpages.com";
+	public static final String DEFAULT_REGISTER = DEFAULT_DOMAIN+"/authentication/addaccount.php";
+	public static final String DEFAULT_LOGIN = DEFAULT_DOMAIN+"/authentication/??????? tbd";
+	
 	
 	/**
 	 * 
 	 * Create a new PHPInterface object to use GET or POST with PHP.
+	 * 
+	 * For default values, 
 	 * 
 	 * @param url - URL to php script
 	 */

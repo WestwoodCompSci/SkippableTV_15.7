@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import skippable.client.net.ClientInputHandler;
+import skippable.client.net.PHPInterface;
 import skippable.common.net.NetworkInputHandler;
 import skippable.common.net.SocketThread;
 
@@ -44,7 +45,18 @@ public class ClientBackend {
 	}
 	
 	public void register(String username, String email, String password) {
-		
+		PHPInterface reg = new PHPInterface(PHPInterface.DEFAULT_REGISTER);
+		reg.add("username", username);
+		reg.add("email", email);
+		reg.add("emailre", email);
+		reg.add("password", password);
+		reg.add("passwordre", password);
+		try {
+			reg.post();
+		} catch (Exception e) {
+			// Darn it!
+			e.printStackTrace();
+		}
 	}
 	
 	
