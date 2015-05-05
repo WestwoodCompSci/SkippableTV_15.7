@@ -40,7 +40,7 @@ public class LoginPanel extends JPanel
 		
 		Box lBox = Box.createVerticalBox();
 		lpanel.add(lBox);
-		//testframe.add(lpanel);
+		testframe.add(lpanel);
 		
 		Box registerlBox = Box.createHorizontalBox();
 		Box usernamelBox = Box.createHorizontalBox();
@@ -73,13 +73,14 @@ public class LoginPanel extends JPanel
 		
 		Box rBox = Box.createVerticalBox();
 		rpanel.add(rBox);
-		testframe.add(rpanel);
+		//testframe.add(rpanel);
 		
 		Box usernamerBox = Box.createHorizontalBox();
 		Box passwordrBox = Box.createHorizontalBox();
 		Box emailrBox = Box.createHorizontalBox();
 		Box registerrBox = Box.createHorizontalBox();
 		
+		rBox.add(Box.createVerticalStrut(50));
 		rBox.add(usernamerBox);
 		rBox.add(Box.createVerticalStrut(50));
 		rBox.add(passwordrBox);
@@ -95,7 +96,7 @@ public class LoginPanel extends JPanel
 		//
 		
 	//Testing
-		//panel.setBackground(Color.RED);
+		//lpanel.setBackground(Color.RED);
 	
 //------------------------------------------------------------------------------		
 		
@@ -108,7 +109,7 @@ public class LoginPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-								
+				lpanel.add(rBox);
 			}} );
 		
 		registerlBox.add(Box.createHorizontalStrut(500));
@@ -278,7 +279,7 @@ public class LoginPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-								
+				
 			}} );
 		
 		registerrBox.add(Box.createHorizontalStrut(0));
