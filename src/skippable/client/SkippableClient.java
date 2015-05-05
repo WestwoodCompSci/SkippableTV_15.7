@@ -16,9 +16,10 @@ public class SkippableClient
 	
 	private ClientBackend backend;
 	
-	SkippableClient(){
+	SkippableClient(ClientBackend backend){
 		
 		//make dat frame
+		this.backend = backend;
 		f = new JFrame("SKiPpaBLe.TV");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setPreferredSize(new Dimension(600,400));
@@ -42,12 +43,14 @@ public class SkippableClient
 		
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+/*
+ * 	public static void main(String[] args) {
+ * 
 		
 		SwingUtilities.invokeLater(new Runnable() {
-			public void run() { new SkippableClient(); }
+			public void run() { new SkippableClient(new ClientBackend(int host, int port) backend); }
 		});
 	}
+ */
 
 }
