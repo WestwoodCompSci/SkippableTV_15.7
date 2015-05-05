@@ -2,10 +2,10 @@ package skippable.client.backend;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.List;
 
 import skippable.client.net.ClientInputHandler;
 import skippable.client.net.PHPInterface;
@@ -21,6 +21,8 @@ public class ClientBackend {
 	
 	SocketThread thread;
 	
+	private boolean usePHP = false;
+	
 	public ClientBackend(String host, int port) {
 		
 		try {
@@ -28,14 +30,20 @@ public class ClientBackend {
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ConnectException e) {
+			System.err.println("Server not found at "+host+":"+port+"! Falling back to PHP.");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		PrintWriter pw = new PrintWriter(thread.getOutputStream());
-		pw.println(NetworkInputHandler.formMessage("TEST", new String[]{"hello", "hi"}));
-		pw.flush();
+		if (thread == null) {
+			usePHP = true;
+		} else {
+			PrintWriter pw = new PrintWriter(thread.getOutputStream());
+			pw.println(NetworkInputHandler.formMessage("TEST", new String[]{"hello", "hi"}));
+			pw.flush();
+		}
 		
 		
 	}
@@ -45,17 +53,21 @@ public class ClientBackend {
 	}
 	
 	public void register(String username, String email, String password) {
-		PHPInterface reg = new PHPInterface(PHPInterface.DEFAULT_REGISTER);
-		reg.add("username", username);
-		reg.add("email", email);
-		reg.add("emailre", email);
-		reg.add("password", password);
-		reg.add("passwordre", password);
-		try {
-			reg.post();
-		} catch (Exception e) {
-			// Darn it!
-			e.printStackTrace();
+		if (usePHP) {
+			PHPInterface reg = new PHPInterface(PHPInterface.DEFAULT_REGISTER);
+			reg.add("username", username);
+			reg.add("email", email);
+			reg.add("emailre", email);
+			reg.add("password", password);
+			reg.add("passwordre", password);
+			try {
+				System.out.println(reg.post());
+			} catch (Exception e) {
+				// Darn it!
+				e.printStackTrace();
+			}
+		} else {
+			
 		}
 	}
 	
