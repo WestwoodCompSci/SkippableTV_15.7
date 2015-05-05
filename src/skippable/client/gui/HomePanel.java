@@ -1,5 +1,7 @@
 package skippable.client.gui;
 
+
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,14 +14,15 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import skippable.client.backend.ClientBackend;
 import skippable.client.backend.Show;
 
-public class HomePanel extends JFrame{
+public class HomePanel{
 
 	private JPanel homePanel;
-	private ClientBackend backEnd;
+	private static ClientBackend backEnd;
 	private ArrayList<Show> myShows = backEnd.getUserShows();
 	
 	public HomePanel(ClientBackend backEnd){
@@ -28,10 +31,10 @@ public class HomePanel extends JFrame{
 		
 		//Creates the panel
 		homePanel = new JPanel();
-		homePanel.setPreferredSize(new Dimension(super.getSize()));
+		homePanel.setPreferredSize(new Dimension(500, 500));
 		
 		//Genre DropDown
-		JComboBox getGenre = new JComboBox();
+		JComboBox<String> getGenre = new JComboBox();
 		getGenre.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				
@@ -79,4 +82,5 @@ public class HomePanel extends JFrame{
 		homePanel.add(container);
 		
 	}
+
 }
