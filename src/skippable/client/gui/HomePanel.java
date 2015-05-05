@@ -19,7 +19,7 @@ import javax.swing.SwingUtilities;
 import skippable.client.backend.ClientBackend;
 import skippable.client.backend.Show;
 
-public class HomePanel{
+public class HomePanel extends JPanel{
 
 	private JPanel homePanel;
 	private static ClientBackend backEnd;
@@ -35,9 +35,15 @@ public class HomePanel{
 		
 		//Genre DropDown
 		JComboBox<String> getGenre = new JComboBox();
-		getGenre.addActionListener(new ActionListener(){
+		/*
+		 * add genres (backend needs to be finished first)
+		 */
+		JButton genre = new JButton();
+		genre.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
-				
+				/*
+				 * ImageIcon stuffs
+				 */
 			}
 		});
 		
