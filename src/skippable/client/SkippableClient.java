@@ -35,6 +35,10 @@ public class SkippableClient
 	
 	}
 	
+	public void setPanel(JPanel Panel){
+		
+	}
+	
 	public Dimension getSize(){
 		
 		Dimension d;
