@@ -17,6 +17,7 @@ import skippable.client.backend.Show;
 
 public class ShowPanel extends JPanel {
 	private JPanel p;
+	private int c;
 	private ShowPanel()
 	{
 		//variables
@@ -61,16 +62,21 @@ public class ShowPanel extends JPanel {
 		vr4.setBackground(Color.BLACK);
 		vr4.setOpaque(true);
 	
+		
 		for(int i = 0;i<epi.size();i++)
 		{
 			JButton episodenum = new JButton("Ep. " + (i+1));
+			c = i;
 			
 			episodenum.addActionListener(new ActionListener(){
 
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					// TODO Auto-generated method stub
-					//Add code to get EpisodePanel for specific page
+			
+					 EpisodePanel e = new EpisodePanel(DasShow.getEpisodes().get(c));
+					p.setVisible(false);
+					e.setVisible(true);
 				}});
 			rating = epi.get(i).getEpisodeSkippability();
 			Box sho = Box.createVerticalBox();
