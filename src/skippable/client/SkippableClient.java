@@ -12,7 +12,7 @@ import skippable.client.gui.LoginPanel;
 public class SkippableClient 
 {
 	private JFrame f;
-	private JPanel CurrentJPanel;
+	private JPanel currentJPanel;
 	
 	private ClientBackend backend;
 	
@@ -23,9 +23,7 @@ public class SkippableClient
 		f = new JFrame("SKiPpaBLe.TV");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setPreferredSize(new Dimension(600,400));
-		LoginPanel l = new LoginPanel();
-		f.add(l);
-		CurrentJPanel = l;
+		setPanel(new LoginPanel());
 		
 		backend = new ClientBackend("127.0.0.1", 32700); // TODO change host and port to something else.
 		
@@ -35,8 +33,10 @@ public class SkippableClient
 	
 	}
 	
-	public void setPanel(JPanel Panel){
-		
+	public void setPanel(JPanel panel){
+		f.remove(currentJPanel);
+		f.add(panel);
+		currentJPanel = panel;
 	}
 	
 	public Dimension getSize(){

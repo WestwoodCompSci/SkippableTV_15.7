@@ -12,15 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
+import skippable.client.SkippableClient;
 import skippable.client.backend.Episode;
 import skippable.client.backend.Show;
 
 public class ShowPanel extends JPanel {
 	private JPanel p;
 	private int c;
-	private ShowPanel()
+	private SkippableClient client;
+	private ShowPanel(SkippableClient client)
 	{
 		//variables
+		this.client = client;
 		int rating;
 		Show DasShow = null; //Change this to the chosen episode
 		//create frame
@@ -75,8 +78,7 @@ public class ShowPanel extends JPanel {
 					// TODO Auto-generated method stub
 			
 					 EpisodePanel e = new EpisodePanel(DasShow.getEpisodes().get(c));
-					p.setVisible(false);
-					e.setVisible(true);
+					client.setPanel(e);
 				}});
 			rating = epi.get(i).getEpisodeSkippability();
 			Box sho = Box.createVerticalBox();
