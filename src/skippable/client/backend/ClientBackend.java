@@ -58,11 +58,19 @@ public class ClientBackend {
 	}
 	
 	public boolean login(String username, String password) {
-		
-		
-		
-		
-		
+		if (usePHP) {
+			PHPInterface log = new PHPInterface(PHPInterface.DEFAULT_LOGIN);
+			log.add("username", username);
+			log.add("password", password);
+			try {
+				System.out.println(log.post());
+			} catch (IOException e) {
+				// Darn it!
+				e.printStackTrace();
+			}
+		} else {
+			
+		}
 		return false;
 	}
 	

@@ -16,7 +16,7 @@ public class SkippableServer {
 			serverSocket = new ServerSocket(port);
 			serverSocket.setSoTimeout(1000);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			// Darn it!
 			e.printStackTrace();
 		}
 		

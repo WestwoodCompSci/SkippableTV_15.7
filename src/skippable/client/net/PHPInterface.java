@@ -7,13 +7,18 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author s510859
+ *
+ */
 public class PHPInterface {
 
 	private String params;
 	private String path;
 	private static final String DEFAULT_DOMAIN = "http://bytor.atwebpages.com";
 	public static final String DEFAULT_REGISTER = DEFAULT_DOMAIN+"/authentication/addaccount.php";
-	public static final String DEFAULT_LOGIN = DEFAULT_DOMAIN+"/authentication/??????? tbd";
+	public static final String DEFAULT_LOGIN = DEFAULT_DOMAIN+"/authentication/login.php";
 	
 	
 	/**
