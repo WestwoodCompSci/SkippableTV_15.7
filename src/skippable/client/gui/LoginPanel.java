@@ -1,36 +1,36 @@
 package skippable.client.gui;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
+
+import skippable.client.SkippableClient;
 
 
 
 public class LoginPanel extends JPanel
 {
 	private JPanel myLoginPage;
+	private JPanel currentPanel;
+	private SkippableClient client;
 	
-	public LoginPanel()
+	public LoginPanel( SkippableClient client)
 	{
 		myLoginPage = new JPanel();
+		this.client = client;
 		
-		final JFrame testframe = new JFrame("Testing the panels.");
-		testframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//final JFrame testframe = new JFrame("Testing the panels.");
+		//testframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		testframe.setPreferredSize(new Dimension(600,400));
-		testframe.setLocation(350, 250);
+		//testframe.setPreferredSize(new Dimension(600,400));
+		//testframe.setLocation(350, 250);
 		
 	//Login Panel
 		
@@ -40,7 +40,7 @@ public class LoginPanel extends JPanel
 		
 		Box lBox = Box.createVerticalBox();
 		lpanel.add(lBox);
-		testframe.add(lpanel);
+		this.add(lpanel);
 		
 		Box registerlBox = Box.createHorizontalBox();
 		Box usernamelBox = Box.createHorizontalBox();
@@ -109,7 +109,7 @@ public class LoginPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				lpanel.add(rBox);
+				client.setPanel(rpanel);
 			}} );
 		
 		registerlBox.add(Box.createHorizontalStrut(500));
@@ -286,16 +286,9 @@ public class LoginPanel extends JPanel
 		registerrBox.add(registerBR);
 		
 //---------------------------------------------------------------------------------------			
-		testframe.pack();
-		testframe.setVisible(true);
+		
+		//testframe.pack();
+		//testframe.setVisible(true);
 		
 	}
-	
-	public static void main(String[] args) 
-	{
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() { new LoginPanel(); }
-		});
-	}
-	
 }
