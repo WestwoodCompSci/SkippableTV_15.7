@@ -23,9 +23,9 @@ public class SkippableClient
 		f = new JFrame("SKiPpaBLe.TV");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setPreferredSize(new Dimension(600,400));
-		setPanel(new LoginPanel());
+		setPanel(new LoginPanel(this));
 		
-		backend = new ClientBackend("127.0.0.1", 32700); // TODO change host and port to something else.
+		//backend = new ClientBackend("127.0.0.1", 32700); // TODO change host and port to something else.
 		
 		//Dont Forget
 		f.pack();
@@ -34,7 +34,10 @@ public class SkippableClient
 	}
 	
 	public void setPanel(JPanel panel){
-		f.remove(currentJPanel);
+		if(currentJPanel != null)
+		{
+			f.remove(currentJPanel);
+		}
 		f.add(panel);
 		currentJPanel = panel;
 	}
