@@ -40,6 +40,7 @@ public class SkippableClient
 		}
 		f.add(panel);
 		currentJPanel = panel;
+		f.pack();
 	}
 	
 	public Dimension getSize(){

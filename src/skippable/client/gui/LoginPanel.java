@@ -33,14 +33,12 @@ public class LoginPanel extends JPanel
 		//testframe.setLocation(350, 250);
 		
 	//Login Panel
-		
-		final JPanel lpanel = new JPanel();
-		lpanel.setPreferredSize(new Dimension(600,400));
-		lpanel.setLocation(600, 400);
+
+		this.setPreferredSize(new Dimension(600,400));
+		this.setLocation(600, 400);
 		
 		Box lBox = Box.createVerticalBox();
-		lpanel.add(lBox);
-		this.add(lpanel);
+		this.add(lBox);
 		
 		Box registerlBox = Box.createHorizontalBox();
 		Box usernamelBox = Box.createHorizontalBox();
@@ -67,32 +65,7 @@ public class LoginPanel extends JPanel
 		
 	// Register Panel
 
-		final JPanel rpanel = new JPanel();
-		rpanel.setPreferredSize(new Dimension(600,400));
-		rpanel.setLocation(600, 400);
 		
-		Box rBox = Box.createVerticalBox();
-		rpanel.add(rBox);
-		//testframe.add(rpanel);
-		
-		Box usernamerBox = Box.createHorizontalBox();
-		Box passwordrBox = Box.createHorizontalBox();
-		Box emailrBox = Box.createHorizontalBox();
-		Box registerrBox = Box.createHorizontalBox();
-		
-		rBox.add(Box.createVerticalStrut(50));
-		rBox.add(usernamerBox);
-		rBox.add(Box.createVerticalStrut(50));
-		rBox.add(passwordrBox);
-		rBox.add(Box.createVerticalStrut(50));
-		rBox.add(emailrBox);
-		rBox.add(Box.createVerticalStrut(50));
-		rBox.add(registerrBox);
-		
-		final JTextField usernameFieldR = new JTextField();
-		final JTextField passwordFieldR = new JTextField();
-		final JTextField emailFieldR = new JTextField();
-		final JButton registerBR = new JButton("Register");
 		//
 		
 	//Testing
@@ -109,7 +82,7 @@ public class LoginPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				client.setPanel(rpanel);
+				client.setPanel(new RegisterPanel(client));
 			}} );
 		
 		registerlBox.add(Box.createHorizontalStrut(500));
@@ -198,92 +171,7 @@ public class LoginPanel extends JPanel
 		
 		//Username Box
 		
-		usernameFieldR.addKeyListener(new KeyListener() {
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				//JOptionPane.showMessageDialog(frame, arg0.getKeyCode());
-					if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
-					{
-						registerBR.doClick();
-					}
-			}
-				@Override
-			public void keyReleased(KeyEvent arg0) {
-					// TODO Auto-generated method stub
-			
-			}
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-			
-			}} );
-	
-		usernamerBox.add(Box.createHorizontalStrut(0));
-		usernamerBox.add(usernameFieldR);
-		usernamerBox.add(Box.createHorizontalStrut(0));
 		
-		//Password Box
-	
-		passwordFieldR.addKeyListener(new KeyListener() {
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				//JOptionPane.showMessageDialog(frame, arg0.getKeyCode());
-				if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
-				{
-					registerBR.doClick();
-				}
-			}
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-		
-			}
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-		
-			}} );
-
-		passwordrBox.add(Box.createHorizontalStrut(0));
-		passwordrBox.add(passwordFieldR);
-		
-		//Email Box
-		
-		emailFieldR.addKeyListener(new KeyListener() {
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				//JOptionPane.showMessageDialog(frame, arg0.getKeyCode());
-				if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
-				{
-					registerBR.doClick();
-				}
-			}
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-		
-			}
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-		
-			}} );
-
-		emailrBox.add(Box.createHorizontalStrut(0));
-		emailrBox.add(emailFieldR);
-			
-		//Register Box
-	
-		registerBR.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				
-			}} );
-		
-		registerrBox.add(Box.createHorizontalStrut(0));
-		registerrBox.add(registerBR);
 		
 //---------------------------------------------------------------------------------------			
 		
