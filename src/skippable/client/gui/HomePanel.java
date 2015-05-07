@@ -35,10 +35,10 @@ public class HomePanel extends JPanel{
 		
 		//Genre DropDown
 		JComboBox<String> getGenre = new JComboBox();
-		/*
-		 * add genres (backend needs to be finished first)
-		 */
-		JButton genre = new JButton();
+		for(String s : backEnd.getShowsByGenre().keySet()){
+			getGenre.addItem(s);
+		}
+		JButton genre = new JButton("Browse");
 		genre.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				/*
