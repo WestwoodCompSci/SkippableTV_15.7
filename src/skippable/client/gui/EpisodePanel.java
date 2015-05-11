@@ -1,5 +1,9 @@
 package skippable.client.gui;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -95,7 +99,7 @@ public class EpisodePanel extends JPanel
 		JButton editSumm = new JButton("Edit");
 		JButton pubSumm = new JButton("Publish");							//hidden until edit pressed
 		Box summaryBox = Box.createVerticalBox();				//changed from horizontal
-		JTextArea summText = new JTextArea("");
+		JTextArea summText = new JTextArea(myEpisode.getEpisodeSummary());
 		summText.setEditable(false);
 		
 		Box commentsH = Box.createHorizontalBox();							//strut
@@ -113,8 +117,82 @@ public class EpisodePanel extends JPanel
 		JButton addCom = new JButton("Add comment");
 		
 		
+		editSumm.addMouseListener(new MouseListener() {
+
+			public void mouseClicked(MouseEvent arg0) {
+				summText.setEditable(true);
+				editSumm.setEnabled(false);
+				pubSumm.setEnabled(true);				
+			}
+
+			public void mouseEntered(MouseEvent arg0) {}
+
+			public void mouseExited(MouseEvent arg0) {}
+
+			public void mousePressed(MouseEvent arg0) {}
+
+			public void mouseReleased(MouseEvent arg0) {}
+			{}
+			
+		});
 		
+		pubSumm.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				myEpisode.setEpisodeSummary(summText.getText());
+				summText.setEditable(false);
+				pubSumm.setEnabled(false);
+				editSumm.setEnabled(true);
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {}
+
+			@Override
+			public void mouseExited(MouseEvent e) {}
+
+			@Override
+			public void mousePressed(MouseEvent e) {}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {}
+			
+		});
 		
+		bar1.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		
 		
 	}
