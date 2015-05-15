@@ -10,6 +10,8 @@ public class Episode {
 	private int averageRating;
 	private Show show;
 	private List<String> comments;
+	private int season;
+	private int episodeNum;
 	
 	public Episode(String title, String summary, int rating) {
 		this.title = title;
@@ -48,6 +50,14 @@ public class Episode {
 	
 	public Show getShow() {
 		return show;
+	}
+	
+	public int getSeason() {
+		return season;
+	}
+	
+	public int getEpNum() {
+		return episodeNum;
 	}
 	
 }
