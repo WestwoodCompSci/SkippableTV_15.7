@@ -12,14 +12,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import skippable.client.SkippableClient;
-
-
+import skippable.client.backend.*;
+import skippable.client.gui.*;
 
 public class LoginPanel extends JPanel
 {
 	private JPanel myLoginPage;
 	private JPanel currentPanel;
 	private SkippableClient client;
+	private ClientBackend backend;
 	
 	public LoginPanel( SkippableClient client)
 	{
@@ -51,8 +52,8 @@ public class LoginPanel extends JPanel
 		lBox.add(passwordlBox);
 		lBox.add(Box.createVerticalStrut(50));
 		
-		final JTextField usernameFieldL = new JTextField();
-		final JTextField passwordFieldL = new JTextField();
+		final JTextField usernameFieldL = new JTextField("Username");
+		final JTextField passwordFieldL = new JTextField("Password");
 		final JButton forgotPasswordBL = new JButton("Forgot Password");
 		final JButton signInBL = new JButton("Sign In");
 		final JButton registerBL = new JButton("Register");
@@ -116,7 +117,7 @@ public class LoginPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-								
+				client.setPanel(new HomePanel(backend));			
 			}} );
 		
 		passwordlBox.add(Box.createHorizontalStrut(100));
@@ -131,7 +132,7 @@ public class LoginPanel extends JPanel
 				@Override
 			public void keyPressed(KeyEvent arg0) {
 				//JOptionPane.showMessageDialog(frame, arg0.getKeyCode());
-					System.out.println("hi");
+					//System.out.println("hi");
 				if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
 				{
 					signInBL.doClick();
@@ -156,7 +157,7 @@ public class LoginPanel extends JPanel
 				@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-							
+				client.setPanel(new ForgotPasswordPanel(client));			
 			}} );
 		
 		usernamelBox.add(Box.createHorizontalStrut(100));
@@ -165,14 +166,6 @@ public class LoginPanel extends JPanel
 		usernamelBox.add(forgotPasswordBL);
 		usernamelBox.add(Box.createHorizontalStrut(100));
 	
-//---------------------------------------------------------------------------------------	
-
-	//Register Panel	
-		
-		//Username Box
-		
-		
-		
 //---------------------------------------------------------------------------------------			
 		
 		//testframe.pack();

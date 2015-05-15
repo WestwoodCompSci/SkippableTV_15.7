@@ -12,10 +12,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import skippable.client.SkippableClient;
+import skippable.client.backend.ClientBackend;
 
 public class RegisterPanel extends JPanel {
 	
 	private SkippableClient client;
+	private ClientBackend backend;
 	
 	public RegisterPanel(SkippableClient client) {
 		this.client = client;
@@ -41,22 +43,14 @@ public class RegisterPanel extends JPanel {
 		rBox.add(Box.createVerticalStrut(50));
 		rBox.add(registerrBox);
 		
-		final JTextField usernameFieldR = new JTextField();
-		final JTextField passwordFieldR = new JTextField();
-		final JTextField emailFieldR = new JTextField();
+		final JTextField usernameFieldR = new JTextField("Username");
+		final JTextField passwordFieldR = new JTextField("Password");
+		final JTextField emailFieldR = new JTextField("Email");
 		final JButton registerBR = new JButton("Register");
 		//
 		
 	//Testing
 		//lpanel.setBackground(Color.RED);
-	
-//------------------------------------------------------------------------------		
-		
-	//Login Panel	
-		
-		//Register Box
-		
-		
 	
 //---------------------------------------------------------------------------------------	
 
@@ -145,7 +139,7 @@ public class RegisterPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				
+				client.setPanel(new HomePanel(backend));
 			}} );
 		
 		registerrBox.add(Box.createHorizontalStrut(0));
