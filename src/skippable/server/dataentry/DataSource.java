@@ -1,9 +1,12 @@
 package skippable.server.dataentry;
-
 import java.awt.Image;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 import javax.imageio.ImageIO;
 
@@ -23,8 +26,9 @@ public abstract class DataSource {
 	}
 	
 	public void addToDataBase(EpisodeData data){
-		//TODO: implement data entry in database once database gets an implementation prepared	
-		// YOOOO ITS THE DATABASE TEAM HERE LET US KNOW HMU WHEN YOU GOT READY TO DO THIS SHIT
+		//TODO: implement data entry in database once database gets an implementation prepared
+		EpisodeData test = new EpisodeData();
+		System.out.println(test.description);
 	}
 	
 	
