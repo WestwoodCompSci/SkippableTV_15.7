@@ -25,6 +25,7 @@ public class EpisodePanel extends JPanel
 															//int --> String --> Image ?
 		myEpisode = ep;
 		
+		Box biggerBox = Box.createHorizontalBox();
 		Box mainBox = Box.createVerticalBox();
 		
 		//TV show info		
@@ -44,32 +45,40 @@ public class EpisodePanel extends JPanel
 		JButton bar1 = new JButton();
 		if (mySkip>=1) {
 			  try {
-			    Image img = ImageIO.read(getClass().getResource("blackRectangle.png"));
+			    Image img = ImageIO.read(getClass().getResource("blackrectangle.png"));
 			    bar1.setIcon(new ImageIcon(img));
+			    bar1.setPreferredSize(new Dimension(10, 4));
+			    bar1.setMaximumSize(new Dimension(10, 4));
 			  } catch (IOException ex) {
 			  }}
 		
 		JButton bar2 = new JButton();
 		if (mySkip>=2) {
 			  try {
-			    Image img = ImageIO.read(getClass().getResource("blackRectangle.png"));
+			    Image img = ImageIO.read(getClass().getResource("blackrectangle.png"));
 			    bar2.setIcon(new ImageIcon(img));
+			    bar2.setPreferredSize(new Dimension(10, 4));
+			    bar2.setMaximumSize(new Dimension(10, 4));
 			  } catch (IOException ex) {
 			  }}
 		
 		JButton bar3 = new JButton();
 		if (mySkip>=3) {
 			  try {
-			    Image img = ImageIO.read(getClass().getResource("blackRectangle.png"));
+			    Image img = ImageIO.read(getClass().getResource("blackrectangle.png"));
 			    bar3.setIcon(new ImageIcon(img));
+			    bar3.setPreferredSize(new Dimension(10, 4));
+			    bar3.setMaximumSize(new Dimension(10, 4));
 			  } catch (IOException ex) {
 			  }}
 		
 		JButton bar4 = new JButton();
 		if (mySkip==4) {
 			  try {
-			    Image img = ImageIO.read(getClass().getResource("blackRectangle.png"));
+			    Image img = ImageIO.read(getClass().getResource("blackrectangle.png"));
 			    bar4.setIcon(new ImageIcon(img));
+			    bar4.setPreferredSize(new Dimension(10, 4));
+			    bar4.setMaximumSize(new Dimension(10, 4));
 			  } catch (IOException ex) {
 			  }}
 
@@ -124,7 +133,7 @@ public class EpisodePanel extends JPanel
 		
 		
 		//strut
-		JButton addCom = new JButton("Add comment");
+		//JButton addCom = new JButton("Add comment");
 		
 		
 		editSumm.addMouseListener(new MouseListener() {
@@ -306,12 +315,17 @@ public class EpisodePanel extends JPanel
 			
 		});
 
-		
+		mainBox.add(Box.createVerticalStrut(5));
 		mainBox.add(titleField);
 		mainBox.add(Box.createVerticalStrut(3));
 		mainBox.add(titleHBox);
 		mainBox.add(Box.createVerticalStrut(5));
 		mainBox.add(summaryBox);
+		mainBox.add(Box.createVerticalStrut(5));
+		
+		biggerBox.add(Box.createHorizontalStrut(5));
+		biggerBox.add(mainBox);
+		biggerBox.add(Box.createHorizontalStrut(5));
 		
 	
 	}
