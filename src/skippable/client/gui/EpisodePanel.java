@@ -29,15 +29,15 @@ public class EpisodePanel extends JPanel
 		
 		//TV show info		
 		JTextField titleField = new JTextField(myEpisode.getTitle());
-		Box titleHBox = Box.createHorizontalBox();							//contains bars, show name, show rating, season #, episode #
-		Image skipBars = null;
+		Box titleHBox = Box.createHorizontalBox();							//contains bars, showStarsV
+		/*Image skipBars = null;
 		try {
 			skipBars = ImageIO.read(new File("image.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}							//skip bars, unique to episode
-		
+		*/
 		
 		Box skipBarsBox = Box.createVerticalBox();
 		
@@ -82,16 +82,19 @@ public class EpisodePanel extends JPanel
 		skipBarsBox.add(bar4);
 		
 		
-		Box showStarsV = Box.createVerticalBox();							//show name, show rating, season #, episode #
+		Box showStarsV = Box.createVerticalBox();							//showStarsH, season #, episode #
 		Box showStarsH = Box.createHorizontalBox();							//show name, show rating (image?)
 		JTextField showName = new JTextField(myEpisode.getShow().getTitle());
 		showStarsH.add(showName);
 		showStarsH.add(new JTextField(myEpisode.getShow().getShowRating()));
 		showStarsV.add(showStarsH);
+		showStarsV.add(new JTextField(myEpisode.getSeason()+"   "+myEpisode.getEpNum()));
+		showStarsV.add(Box.createVerticalStrut(5));
 		
 		//Box pic = Box.createHorizontalBox();
 		//pic.paint(skipBars.getGraphics());
 		titleHBox.add(skipBarsBox);
+		titleHBox.add(showStarsV);
 		
 		//episode info
 		Box summTitle = Box.createHorizontalBox();
@@ -102,15 +105,22 @@ public class EpisodePanel extends JPanel
 		JTextArea summText = new JTextArea(myEpisode.getEpisodeSummary());
 		summText.setEditable(false);
 		
-		Box commentsH = Box.createHorizontalBox();							//strut
-		Box commentsV = Box.createVerticalBox();
+		
+		
+		Box sumTextH = Box.createHorizontalBox();
+		sumTextH.add(Box.createHorizontalStrut(10));
+		sumTextH.add(summText);
 		
 		summTitle.add(summTitleWords);
+		summTitle.add(Box.createHorizontalStrut(3));
 		summTitle.add(editSumm);
+		summTitle.add(Box.createHorizontalStrut(3));
 		pubSumm.setEnabled(false);
 		summTitle.add(pubSumm);
+		summTitle.add(Box.createHorizontalStrut(3));
 		summaryBox.add(summTitle);
-		summaryBox.add(summText);
+		summaryBox.add(Box.createVerticalStrut(3));
+		summaryBox.add(sumTextH);
 		
 		
 		//strut
@@ -164,7 +174,7 @@ public class EpisodePanel extends JPanel
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
+				myEpisode.addRating(1);
 				
 			}
 
@@ -194,6 +204,115 @@ public class EpisodePanel extends JPanel
 			
 		});
 		
+		bar2.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				myEpisode.addRating(2);
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		
+		bar3.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				myEpisode.addRating(3);
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		bar4.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				myEpisode.addRating(4);
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+
+		
+		mainBox.add(titleField);
+		mainBox.add(Box.createVerticalStrut(3));
+		mainBox.add(titleHBox);
+		mainBox.add(Box.createVerticalStrut(5));
+		mainBox.add(summaryBox);
+		
+	
 	}
 }
