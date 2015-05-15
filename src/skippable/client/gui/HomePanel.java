@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import skippable.client.SkippableClient;
 import skippable.client.backend.ClientBackend;
 import skippable.client.backend.Show;
 
@@ -25,9 +26,9 @@ public class HomePanel extends JPanel{
 	private static ClientBackend backEnd;
 	private ArrayList<Show> myShows = backEnd.getUserShows();
 	
-	public HomePanel(ClientBackend backEnd){
+	public HomePanel(){
 		
-		this.backEnd = backEnd;
+		this.backEnd = SkippableClient.get().getBackend();
 		
 		//Creates the panel
 		homePanel = new JPanel();
@@ -68,6 +69,7 @@ public class HomePanel extends JPanel{
 			JButton showButton = new JButton();
 			/*
 			 * Need to add the imageicon of the button to this
+			 * 	get the image of the show at index i
 			 */
 			newVerticalBox.add(title);
 			newVerticalBox.add(showButton);
@@ -75,6 +77,7 @@ public class HomePanel extends JPanel{
 			showButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0){
 					
+					SkippableClient.get().setPanel(HomePanel.this);
 				}
 			});
 			
