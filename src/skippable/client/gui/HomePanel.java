@@ -32,7 +32,6 @@ public class HomePanel extends JPanel{
 		
 		//Creates the panel
 		homePanel = new JPanel();
-		homePanel.setPreferredSize(new Dimension(500, 500));
 		
 		//Genre DropDown
 		JComboBox<String> getGenre = new JComboBox();
@@ -60,6 +59,12 @@ public class HomePanel extends JPanel{
 		Box showDisplay = Box.createVerticalBox();
 		showDisplay.add(myShowsLabel);
 		
+		//Huge Vertical Box
+				Box container = Box.createVerticalBox();
+				container.add(genreChoice);
+				container.add(showDisplay);
+				homePanel.add(container);
+		
 		//Adding in the shows
 		for(int i=0; i < myShows.size(); i++){
 			
@@ -83,12 +88,6 @@ public class HomePanel extends JPanel{
 			
 			showDisplay.add(newVerticalBox);
 		}
-		
-		//Huge Vertical Box
-		Box container = Box.createVerticalBox();
-		container.add(genreChoice);
-		container.add(showDisplay);
-		homePanel.add(container);
 		
 	}
 

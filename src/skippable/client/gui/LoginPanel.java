@@ -117,7 +117,7 @@ public class LoginPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				client.setPanel(new HomePanel(backend));			
+				SkippableClient.get().setPanel(new HomePanel());
 			}} );
 		
 		passwordlBox.add(Box.createHorizontalStrut(100));
