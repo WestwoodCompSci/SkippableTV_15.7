@@ -74,10 +74,11 @@ public class ClientBackend {
 		return false;
 	}
 	
-	public void register(String username, String email, String password) {
+	public void register(String firstName, String lastName, String email, String password) {
 		if (usePHP) {
 			PHPInterface reg = new PHPInterface(PHPInterface.DEFAULT_REGISTER);
-			reg.add("username", username);
+			reg.add("first", firstName);
+			reg.add("last", lastName);
 			reg.add("email", email);
 			reg.add("emailre", email);
 			reg.add("password", password);
