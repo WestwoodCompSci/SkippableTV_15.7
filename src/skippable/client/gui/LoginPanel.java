@@ -26,6 +26,7 @@ public class LoginPanel extends JPanel
 	{
 		myLoginPage = new JPanel();
 		this.client = client;
+		this.backend = client.getBackend();
 		
 		//final JFrame testframe = new JFrame("Testing the panels.");
 		//testframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,7 +118,8 @@ public class LoginPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				SkippableClient.get().setPanel(new HomePanel());
+				backend.login(usernameFieldL.getText(), passwordFieldL.getText());
+				//SkippableClient.get().setPanel(new HomePanel());
 			}} );
 		
 		passwordlBox.add(Box.createHorizontalStrut(100));

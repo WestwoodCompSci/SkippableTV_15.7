@@ -19,8 +19,10 @@ public class RegisterPanel extends JPanel {
 	private SkippableClient client;
 	private ClientBackend backend;
 	
-	public RegisterPanel(SkippableClient client) {
+	public RegisterPanel(SkippableClient client) 
+	{
 		this.client = client;
+		this.backend = client.getBackend();
 		
 		this.setPreferredSize(new Dimension(600,400));
 		this.setLocation(600, 400);
@@ -139,7 +141,8 @@ public class RegisterPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				client.setPanel(new HomePanel(backend));
+				backend.register(usernameFieldR.getText(), emailFieldR.getText(), passwordFieldR.getText());
+				//client.setPanel(new HomePanel(backend));
 			}} );
 		
 		registerrBox.add(Box.createHorizontalStrut(0));
