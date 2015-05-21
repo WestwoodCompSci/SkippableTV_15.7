@@ -42,9 +42,23 @@ public class HomePanel extends JPanel{
 		JButton genre = new JButton("Browse");
 		genre.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
-				/*
-				 * ImageIcon stuffs
-				 */
+				String g = (String) getGenre.getSelectedItem();
+				for(int i = 0; i<backEnd.getShowsByGenre().size(); i++){
+					
+					Box newVerticalBox = Box.createVerticalBox();
+					JLabel rating = new JLabel("" + myShows.get(i).getShowRating());
+					JButton showButton = new JButton(myShows.get(i).getTitle());
+					JLabel img = new JLabel(myShows.get(i).getImage());
+					newVerticalBox.add(showButton);
+					newVerticalBox.add(img);
+					newVerticalBox.add(rating);
+					showButton.addActionListener(new ActionListener(){
+						public void actionPerformed(ActionEvent arg0){
+							
+							//SkippableClient.get().setPanel(new ShowPanel());
+						}
+					});
+				}
 			}
 		});
 		
@@ -70,20 +84,16 @@ public class HomePanel extends JPanel{
 		for(int i=0; i < myShows.size(); i++){
 			
 			Box newVerticalBox = Box.createVerticalBox();
-			JLabel title = new JLabel(myShows.get(i).getTitle());
 			JLabel rating = new JLabel("" + myShows.get(i).getShowRating());
-			JButton showButton = new JButton();
-			/*
-			 * Need to add the imageicon of the button to this
-			 * 	get the image of the show at index i
-			 */
-			newVerticalBox.add(title);
+			JButton showButton = new JButton(myShows.get(i).getTitle());
+			JLabel img = new JLabel(myShows.get(i).getImage());
 			newVerticalBox.add(showButton);
+			newVerticalBox.add(img);
 			newVerticalBox.add(rating);
 			showButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0){
 					
-					SkippableClient.get().setPanel(HomePanel.this);
+					//SkippableClient.get().setPanel(new ShowPanel());
 				}
 			});
 			
