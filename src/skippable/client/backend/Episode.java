@@ -6,22 +6,25 @@ public class Episode {
 
 	private String title;
 	private String summary;
-	private int userRating;
+	private int userRatingNum;
 	private int averageRating;
 	private Show show;
 	private List<String> comments;
 	private int season;
 	private int episodeNum;
+
 	
-	public Episode(String title, String summary, int rating) {
+	public Episode(Show show, String title, String summary, int rating) {
 		this.title = title;
+		this.show = show;
 		this.summary = summary;
 		this.averageRating = rating;
+		userRatingNum = 0;				//does this work?
+		averageRating = 0;				//^
 	}
 	
 	public int getEpisodeSkippability() {
-		// TODO implement.
-		return -1;
+		return averageRating;
 	}
 	
 	public String getEpisodeSummary() {
@@ -37,7 +40,9 @@ public class Episode {
 			throw new IllegalArgumentException("Rating must be from 1-4!");
 		}
 		
-		// TODO implement
+		userRatingNum++;
+		averageRating = (averageRating+rating)/userRatingNum;
+		
 	}
 	
 	public String getTitle() {

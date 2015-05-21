@@ -3,6 +3,7 @@ package skippable.client.backend;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -23,6 +24,7 @@ public class Show {
 		this.title = name;
 		this.genre = genre;
 		this.summary = summary;
+		episodes = new ArrayList<Episode>();
 	}
 	
 	public String getShowSummary() {
@@ -65,6 +67,10 @@ public class Show {
 	
 	public List<Episode> getEpisodes() {
 		return episodes;
+	}
+	
+	public void addEpisode(String title, String summary, int rating){
+		episodes.add(new Episode(this, title, summary, rating));
 	}
 	
 	public String getTitle() {

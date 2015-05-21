@@ -12,19 +12,23 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import skippable.client.SkippableClient;
 import skippable.client.backend.Episode;
+import skippable.client.backend.Show;
 
 public class EpisodePanel extends JPanel
 {
 	Episode myEpisode;
 	int mySkip;
+
 	
 	public EpisodePanel(Episode ep)
 	{
-		mySkip = myEpisode.getEpisodeSkippability();
-															//int --> String --> Image ?
-		myEpisode = ep;
 		
+		
+															
+		myEpisode = ep;
+		mySkip = myEpisode.getEpisodeSkippability();
 		Box biggerBox = Box.createHorizontalBox();
 		Box mainBox = Box.createVerticalBox();
 		
@@ -93,7 +97,7 @@ public class EpisodePanel extends JPanel
 		
 		Box showStarsV = Box.createVerticalBox();							//showStarsH, season #, episode #
 		Box showStarsH = Box.createHorizontalBox();							//show name, show rating (image?)
-		JTextField showName = new JTextField(myEpisode.getShow().getTitle());
+		JButton showName = new JButton(myEpisode.getShow().getTitle());
 		showStarsH.add(showName);
 		showStarsH.add(new JTextField(myEpisode.getShow().getShowRating()));
 		showStarsV.add(showStarsH);
@@ -328,5 +332,16 @@ public class EpisodePanel extends JPanel
 		biggerBox.add(Box.createHorizontalStrut(5));
 		
 	
+		
+	}
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new Runnable() {
+			
+			public void run() {
+				Show s = new Show("series", "Genre", "summary");
+				s.addEpisode("example", "summary summary summary fjajclkfjmhxdahjkfclnajlm", 3);
+				System.out.println(s.getEpisodes().get(0).getTitle());
+				new EpisodePanel(s.getEpisodes().get(0)); }
+		});
 	}
 }
