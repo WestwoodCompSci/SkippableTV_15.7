@@ -24,11 +24,12 @@ public class HomePanel extends JPanel{
 
 	private JPanel homePanel;
 	private static ClientBackend backEnd;
-	private ArrayList<Show> myShows = backEnd.getUserShows();
+	private ArrayList<Show> myShows;
 	
 	public HomePanel(){
 		
 		this.backEnd = SkippableClient.get().getBackend();
+		myShows.equals(backEnd.getUserShows());
 		
 		//Creates the panel
 		homePanel = new JPanel();
