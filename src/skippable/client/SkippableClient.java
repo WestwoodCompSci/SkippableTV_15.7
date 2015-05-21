@@ -7,6 +7,7 @@ import java.awt.Image;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -27,7 +28,9 @@ public class SkippableClient
 	Box vBTop;
 	Box vBBottom;
 	
-	private ImageIcon i;
+	private ImageIcon icon;
+	
+	private JLabel logo;
 	
 	private SkippableClient(){
 		
@@ -35,9 +38,12 @@ public class SkippableClient
 		f = new JFrame("SKiPpaBLe.TV");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setPreferredSize(new Dimension(600,400));
-		VBTop = Box.createVerticalBox();
+		vBTop = Box.createVerticalBox();
+		vBBottom = Box.createVerticalBox();
 		setPanel(new LoginPanel(this));
-		
+		icon= new ImageIcon("finallogo.png");
+		logo.setIcon(icon);
+		vBTop.add(logo);
 		backend = new ClientBackend(ip, port); // TODO change host and port to something else.
 		
 		//Dont Forget
@@ -61,9 +67,9 @@ public class SkippableClient
 	public void setPanel(JPanel panel){
 		if(currentJPanel != null)
 		{
-			VBBottom.remove(currentJPanel);
+			vBBottom.remove(currentJPanel);
 		}
-		f.add(panel);
+		vBBottom.add(panel);
 		currentJPanel = panel;
 		f.pack();
 	}
