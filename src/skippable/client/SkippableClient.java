@@ -1,7 +1,11 @@
 package skippable.client;
 
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Image;
 
+import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -20,6 +24,7 @@ public class SkippableClient
 	private ClientBackend backend;
 	private static SkippableClient theClient;
 	
+	private ImageIcon i;
 	
 	private SkippableClient(){
 		
@@ -27,6 +32,13 @@ public class SkippableClient
 		f = new JFrame("SKiPpaBLe.TV");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setPreferredSize(new Dimension(600,400));
+		
+		
+		Box vBTop = Box.createVerticalBox();
+		i = new ImageIcon("finalchara.png");
+	
+		Box vBBottom = Box.createVerticalBox();
+		
 		setPanel(new LoginPanel(this));
 		
 		backend = new ClientBackend(ip, port); // TODO change host and port to something else.
