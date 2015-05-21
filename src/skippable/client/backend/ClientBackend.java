@@ -55,6 +55,8 @@ public class ClientBackend {
 		showsByGenre.put("Drama", new Show("Mean Girls", "Drama", "A girl attempts to torture 'alpha girls,' but she becomes one herself."));
 		showsByGenre.put("Action", new Show("Team America: World Police", "Action", "Uh uh hard to say"));		
 		
+		userShows = new ArrayList<Show>(showsByGenre.values());
+		
 	}
 	
 	public boolean login(String username, String password) {

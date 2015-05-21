@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 import skippable.client.SkippableClient;
 import skippable.client.backend.ClientBackend;
+import skippable.client.gui.*;
 
 public class RegisterPanel extends JPanel {
 	
@@ -31,24 +32,33 @@ public class RegisterPanel extends JPanel {
 		this.add(rBox);
 		//testframe.add(rpanel);
 		
-		Box usernamerBox = Box.createHorizontalBox();
+		//Box usernamerBox = Box.createHorizontalBox();
 		Box passwordrBox = Box.createHorizontalBox();
 		Box emailrBox = Box.createHorizontalBox();
 		Box registerrBox = Box.createHorizontalBox();
+		Box firstnamerBox = Box.createHorizontalBox();
+		Box lastnamerBox = Box.createHorizontalBox();
 		
-		rBox.add(Box.createVerticalStrut(50));
-		rBox.add(usernamerBox);
-		rBox.add(Box.createVerticalStrut(50));
-		rBox.add(passwordrBox);
-		rBox.add(Box.createVerticalStrut(50));
+		//rBox.add(Box.createVerticalStrut(50));
+		//rBox.add(usernamerBox);
+		rBox.add(Box.createVerticalStrut(40));
+		rBox.add(firstnamerBox);
+		rBox.add(Box.createVerticalStrut(40));
+		rBox.add(lastnamerBox);
+		rBox.add(Box.createVerticalStrut(40));
 		rBox.add(emailrBox);
-		rBox.add(Box.createVerticalStrut(50));
+		rBox.add(Box.createVerticalStrut(40));
+		rBox.add(passwordrBox);
+		rBox.add(Box.createVerticalStrut(40));
 		rBox.add(registerrBox);
 		
-		final JTextField usernameFieldR = new JTextField("Username");
+		//final JTextField usernameFieldR = new JTextField("Username");
 		final JTextField passwordFieldR = new JTextField("Password");
 		final JTextField emailFieldR = new JTextField("Email");
 		final JButton registerBR = new JButton("Register");
+		final JTextField firstnameFieldR = new JTextField("First Name");
+		final JTextField lastnameFieldR = new JTextField("Last Name");
+		
 		//
 		
 	//Testing
@@ -60,7 +70,7 @@ public class RegisterPanel extends JPanel {
 		
 		//Username Box
 		
-		usernameFieldR.addKeyListener(new KeyListener() {
+		/*usernameFieldR.addKeyListener(new KeyListener() {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				//JOptionPane.showMessageDialog(frame, arg0.getKeyCode());
@@ -82,7 +92,59 @@ public class RegisterPanel extends JPanel {
 	
 		usernamerBox.add(Box.createHorizontalStrut(0));
 		usernamerBox.add(usernameFieldR);
-		usernamerBox.add(Box.createHorizontalStrut(0));
+		usernamerBox.add(Box.createHorizontalStrut(0));		*/
+		
+		//First Name Box
+		
+		firstnameFieldR.addKeyListener(new KeyListener() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				//JOptionPane.showMessageDialog(frame, arg0.getKeyCode());
+					if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
+					{
+						registerBR.doClick();
+					}
+			}
+				@Override
+			public void keyReleased(KeyEvent arg0) {
+					// TODO Auto-generated method stub
+			
+			}
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+			
+			}} );
+	
+		firstnamerBox.add(Box.createHorizontalStrut(0));
+		firstnamerBox.add(firstnameFieldR);
+		firstnamerBox.add(Box.createHorizontalStrut(0));
+		
+		//Last Name Box
+		
+		lastnameFieldR.addKeyListener(new KeyListener() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				//JOptionPane.showMessageDialog(frame, arg0.getKeyCode());
+					if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
+					{
+						registerBR.doClick();
+					}
+			}
+				@Override
+			public void keyReleased(KeyEvent arg0) {
+					// TODO Auto-generated method stub
+			
+			}
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+			
+			}} );
+	
+		lastnamerBox.add(Box.createHorizontalStrut(0));
+		lastnamerBox.add(lastnameFieldR);
+		lastnamerBox.add(Box.createHorizontalStrut(0));
 		
 		//Password Box
 	
@@ -141,8 +203,8 @@ public class RegisterPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				backend.register(usernameFieldR.getText(), emailFieldR.getText(), passwordFieldR.getText());
-				//client.setPanel(new HomePanel(backend));
+				backend.register(firstnameFieldR.getText(), lastnameFieldR.getText(), emailFieldR.getText(), passwordFieldR.getText());
+				SkippableClient.get().setPanel(new LoginPanel(client));
 			}} );
 		
 		registerrBox.add(Box.createHorizontalStrut(0));

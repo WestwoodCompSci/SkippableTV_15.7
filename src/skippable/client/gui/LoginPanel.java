@@ -53,7 +53,7 @@ public class LoginPanel extends JPanel
 		lBox.add(passwordlBox);
 		lBox.add(Box.createVerticalStrut(50));
 		
-		final JTextField usernameFieldL = new JTextField("Username");
+		final JTextField usernameFieldL = new JTextField("Email");
 		final JTextField passwordFieldL = new JTextField("Password");
 		final JButton forgotPasswordBL = new JButton("Forgot Password");
 		final JButton signInBL = new JButton("Sign In");
@@ -118,8 +118,8 @@ public class LoginPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				backend.login(usernameFieldL.getText(), passwordFieldL.getText());
-				//SkippableClient.get().setPanel(new HomePanel());
+				//backend.login(usernameFieldL.getText(), passwordFieldL.getText());
+				SkippableClient.get().setPanel(new HomePanel());
 			}} );
 		
 		passwordlBox.add(Box.createHorizontalStrut(100));
