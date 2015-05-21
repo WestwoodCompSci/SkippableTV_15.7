@@ -24,6 +24,9 @@ public class SkippableClient
 	private ClientBackend backend;
 	private static SkippableClient theClient;
 	
+	Box vBTop;
+	Box vBBottom;
+	
 	private ImageIcon i;
 	
 	private SkippableClient(){
@@ -32,13 +35,7 @@ public class SkippableClient
 		f = new JFrame("SKiPpaBLe.TV");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setPreferredSize(new Dimension(600,400));
-		
-		
-		Box vBTop = Box.createVerticalBox();
-		i = new ImageIcon("finalchara.png");
-	
-		Box vBBottom = Box.createVerticalBox();
-		
+		VBTop = Box.createVerticalBox();
 		setPanel(new LoginPanel(this));
 		
 		backend = new ClientBackend(ip, port); // TODO change host and port to something else.
@@ -64,7 +61,7 @@ public class SkippableClient
 	public void setPanel(JPanel panel){
 		if(currentJPanel != null)
 		{
-			f.remove(currentJPanel);
+			VBBottom.remove(currentJPanel);
 		}
 		f.add(panel);
 		currentJPanel = panel;

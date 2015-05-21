@@ -29,7 +29,7 @@ public class HomePanel extends JPanel{
 	public HomePanel(){
 		
 		this.backEnd = SkippableClient.get().getBackend();
-		myShows.equals(backEnd.getUserShows());
+		myShows= (backEnd.getUserShows());
 		
 		//Creates the panel
 		homePanel = new JPanel();
