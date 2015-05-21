@@ -38,12 +38,18 @@ public class SkippableClient
 		f = new JFrame("SKiPpaBLe.TV");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setPreferredSize(new Dimension(600,400));
+		
 		vBTop = Box.createVerticalBox();
 		vBBottom = Box.createVerticalBox();
+		
 		setPanel(new LoginPanel(this));
+		
 		icon= new ImageIcon("finallogo.png");
 		logo.setIcon(icon);
 		vBTop.add(logo);
+		
+		f.add(vBTop);
+		f.add(vBBottom);
 		backend = new ClientBackend(ip, port); // TODO change host and port to something else.
 		
 		//Dont Forget
