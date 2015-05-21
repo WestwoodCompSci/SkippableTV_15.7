@@ -20,7 +20,7 @@ public class ShowPanel extends JPanel {
 	private JPanel p;
 	private int c;
 	private SkippableClient client;
-	private ShowPanel(SkippableClient client)
+	public ShowPanel()
 	{
 		//variables
 		this.client = client;

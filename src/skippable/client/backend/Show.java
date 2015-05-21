@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class Show {
 
@@ -15,7 +16,7 @@ public class Show {
 	private String genre;
 	
 	
-	private Image img;
+	private ImageIcon img;
 	private String title;
 	private List<Episode> episodes;
 	
@@ -42,7 +43,7 @@ public class Show {
 	public int getShowRating() {
 		return rating;
 	}
-	public Image getImage() {
+	public ImageIcon getImage() {
 		return img;
 	}
 	
